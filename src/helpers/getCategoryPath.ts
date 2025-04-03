@@ -4,7 +4,7 @@ export function getCategoryPath(
   categories: Category[],
   categoryName: string,
   path = ''
-): string {
+): string | null {
   for (const category of categories) {
     const currentPath = `${path}/${category.name}`;
 
@@ -16,10 +16,18 @@ export function getCategoryPath(
       continue;
     }
 
-    try {
-      return getCategoryPath(category.subcategories, categoryName, currentPath);
-    } catch {}
+    const subCategoryPath = getCategoryPath(
+      category.subcategories,
+      categoryName,
+      currentPath
+    );
+
+    if (subCategoryPath === null) {
+      continue;
+    }
+
+    return subCategoryPath;
   }
 
-  throw new Error('Category not found');
+  return null;
 }

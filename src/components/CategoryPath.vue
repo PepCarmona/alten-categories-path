@@ -9,15 +9,16 @@ interface CategoryPathProps {
 }
 const props = defineProps<CategoryPathProps>();
 
-const categoryPath = computed<string>(() => {
-  try {
-    return getCategoryPath(props.categories, props.categoryName);
-  } catch (error) {
-    return String(error);
-  }
-});
+const categoryPath = computed<string | null>(() =>
+  getCategoryPath(props.categories, props.categoryName)
+);
 </script>
 
 <template>
-  <div class="category-path">Category path: {{ categoryPath }}</div>
+  <div class="category-path">
+    <span class="error" v-if="categoryPath === null">
+      Unknown category path. Category name not found.
+    </span>
+    <span v-else>Category path: {{ categoryPath }}</span>
+  </div>
 </template>

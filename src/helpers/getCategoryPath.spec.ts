@@ -90,15 +90,13 @@ describe('getCategoryPath', () => {
     );
   });
 
-  it('should throw an Error if category does not exist on first level', () => {
+  it('should return null if category does not exist on first level', () => {
     const categories: Category[] = [];
 
-    expect(() => getCategoryPath(categories, 'category1')).toThrowError(
-      'Category not found'
-    );
+    expect(getCategoryPath(categories, 'category1')).toBeNull();
   });
 
-  it('should throw an Error if category does not exist on deeper level', () => {
+  it('should return null if category does not exist on deeper level', () => {
     const categories: Category[] = [
       {
         name: 'category1',
@@ -106,8 +104,6 @@ describe('getCategoryPath', () => {
       },
     ];
 
-    expect(() => getCategoryPath(categories, 'category3')).toThrowError(
-      'Category not found'
-    );
+    expect(getCategoryPath(categories, 'category3')).toBeNull();
   });
 });

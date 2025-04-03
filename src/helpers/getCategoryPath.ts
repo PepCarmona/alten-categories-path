@@ -16,7 +16,9 @@ export function getCategoryPath(
       continue;
     }
 
-    return getCategoryPath(category.subcategories, categoryName, currentPath);
+    try {
+      return getCategoryPath(category.subcategories, categoryName, currentPath);
+    } catch {}
   }
 
   throw new Error('Category not found');

@@ -27,6 +27,21 @@ describe('getCategoryPath', () => {
     );
   });
 
+  it('should return category path with sibling categories', () => {
+    const categories: Category[] = [
+      {
+        name: 'category1',
+        subcategories: [],
+      },
+      {
+        name: 'category2',
+        subcategories: [],
+      },
+    ];
+
+    expect(getCategoryPath(categories, 'category2')).toBe('/category2');
+  });
+
   it('should return category path of the first category if multiple categories have the same name', () => {
     const categories: Category[] = [
       {
@@ -55,7 +70,7 @@ describe('getCategoryPath', () => {
     );
   });
 
-  it('should throw an Error if category does not exist on first level', () => {
+  it('should return null if category does not exist on first level', () => {
     const categories: Category[] = [];
 
     expect(() => getCategoryPath(categories, 'category1')).toThrowError(

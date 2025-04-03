@@ -12,6 +12,10 @@ export function getCategoryPath(
       return currentPath;
     }
 
+    if (category.subcategories.length === 0) {
+      continue;
+    }
+
     return getCategoryPath(category.subcategories, categoryName, currentPath);
   }
 

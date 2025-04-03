@@ -4,22 +4,32 @@ import type { Category } from '../types/category';
 interface CategoryDetailsProps {
   category: Category;
 }
-defineProps<CategoryDetailsProps>();
+const props = defineProps<CategoryDetailsProps>();
+
+interface CategoryDetailsEmits {
+  (eventName: 'select-category', categoryName: string): void;
+}
+const emit = defineEmits<CategoryDetailsEmits>();
 </script>
 
 <template>
   <div class="category-details">
     <div class="category-name">
-      Category name: <button>{{ category.name }}</button>
+      Category name:
+      <button @click="emit('select-category', props.category.name)">
+        {{ props.category.name }}
+      </button>
     </div>
 
-    <div v-if="category.subcategories.length" class="subcategories">
+    <div v-if="props.category.subcategories.length" class="subcategories">
       Subcategories:
       <ul>
         <li
           v-for="subcategory in category.subcategories"
           :key="subcategory.name">
-          <CategoryDetails :category="subcategory" />
+          <CategoryDetails
+            :category="subcategory"
+            @select-category="emit('select-category', $event)" />
         </li>
       </ul>
     </div>

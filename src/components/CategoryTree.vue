@@ -3,16 +3,23 @@ import type { Category } from '../types/category';
 import CategoryDetails from './CategoryDetails.vue';
 
 interface CategoryTreeProps {
-  categories: readonly Category[];
+  categories: Category[];
 }
-defineProps<CategoryTreeProps>();
+const props = defineProps<CategoryTreeProps>();
+
+interface CategoryTreeEmits {
+  (eventName: 'select-category', categoryName: string): void;
+}
+const emit = defineEmits<CategoryTreeEmits>();
 </script>
 
 <template>
   <div class="category-tree">
     <ul>
-      <li v-for="category in categories" :key="category.name">
-        <CategoryDetails :category="category" />
+      <li v-for="category in props.categories" :key="category.name">
+        <CategoryDetails
+          :category="category"
+          @select-category="emit('select-category', $event)" />
       </li>
     </ul>
   </div>

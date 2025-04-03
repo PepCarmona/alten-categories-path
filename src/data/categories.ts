@@ -1,6 +1,6 @@
 import type { Category } from '../types/category';
 
-export const CATEGORIES: readonly Category[] = [
+export const CATEGORIES: Category[] = [
   {
     name: 'category1',
     subcategories: [

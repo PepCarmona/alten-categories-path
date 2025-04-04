@@ -3,6 +3,7 @@
   --text-color-light: #e7ebef;
   --shadow-color: #5b5c5e;
   --primary-color: #194f56;
+  --background-color: #242424;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,7 +11,7 @@
 
   color-scheme: light dark;
   color: var(--text-color);
-  background-color: #242424;
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

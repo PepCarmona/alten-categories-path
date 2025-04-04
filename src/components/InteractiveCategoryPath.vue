@@ -21,7 +21,7 @@ const selectedCategoryName = ref<string | null>(null);
     <div class="contents">
       <CategoryTree :categories="props.categories" />
 
-      <div>
+      <div class="result">
         <CategoryInput @search="selectedCategoryName = $event" />
 
         <CategoryPath
@@ -41,6 +41,13 @@ const selectedCategoryName = ref<string | null>(null);
     flex-direction: column-reverse;
 
     gap: 2em;
+
+    .result {
+      display: flex;
+      flex-direction: column;
+
+      gap: 2em;
+    }
   }
 
   @media screen and (min-width: 600px) {

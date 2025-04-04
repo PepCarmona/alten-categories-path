@@ -19,7 +19,7 @@ const inputText = ref<string>('');
       v-model="inputText"
       @enter="emit('search', inputText)" />
 
-    <AppButton :type="'primary'" @click="emit('search', inputText)">
+    <AppButton type="primary" @click="emit('search', inputText)">
       Search
     </AppButton>
   </div>

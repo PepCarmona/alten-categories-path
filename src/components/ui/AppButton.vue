@@ -11,15 +11,23 @@ const props = defineProps<AppButtonProps>();
 
 <style scoped lang="scss">
 .app-button {
-  padding: 0.5em 1em;
   border-radius: 0.35em;
-  border: 1px solid var(--primary-color);
-  color: var(--text-color);
   cursor: pointer;
 
   &.primary {
-    background-color: var(--primary-color);
     color: var(--text-color-light);
+    padding: 0.5em 1em;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  &.secondary {
+    color: var(--text-color);
+    padding: 0.25em 0.5em;
+    background-color: var(--background-color);
+    border: 1px solid var(--shadow-color);
+
+    font-size: small;
   }
 }
 </style>

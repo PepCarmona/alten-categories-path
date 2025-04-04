@@ -2,6 +2,8 @@
 import { computed } from 'vue';
 import { getCategoryPath } from '../helpers/getCategoryPath';
 import type { Category } from '../types/category';
+import CodeSnippet from './ui/CodeSnippet.vue';
+import AppButton from './ui/AppButton.vue';
 
 interface CategoryPathProps {
   categories: Category[];
@@ -21,11 +23,25 @@ const categoryPath = computed<string | null>(() =>
 
 <template>
   <div class="category-path">
-    <span class="error" v-if="categoryPath === null">
+    <code class="error" v-if="categoryPath === null">
       Category name not found.
-    </span>
-    <span v-else>{{ categoryPath }}</span>
+    </code>
+    <CodeSnippet v-else mode="inline" :code="categoryPath" />
 
-    <button @click="emit('clear')">Clear</button>
+    <AppButton type="secondary" @click="emit('clear')">Clear</AppButton>
   </div>
 </template>
+
+<style scoped lang="scss">
+.category-path {
+  display: flex;
+  gap: 0.5em;
+
+  .error {
+    background-color: #351414;
+    font-family: monospace;
+    border-radius: 0.5em;
+    padding: 3px 5px;
+  }
+}
+</style>

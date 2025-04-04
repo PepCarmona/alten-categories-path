@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import SectionTitle from './ui/SectionTitle.vue';
 
 interface CategoryInputEmits {
   (eventName: 'search', inputText: string): void;
@@ -12,8 +11,6 @@ const inputText = ref<string>('');
 
 <template>
   <div class="category-input">
-    <SectionTitle>Custom category name search</SectionTitle>
-
     <input type="text" placeholder="Category name" v-model="inputText" />
 
     <button @click="emit('search', inputText)">Search</button>

@@ -4,6 +4,7 @@ import type { Category } from '../types/category';
 import CategoryPath from './CategoryPath.vue';
 import CategoryTree from './CategoryTree.vue';
 import CategoryInput from './CategoryInput.vue';
+import SectionTitle from './ui/SectionTitle.vue';
 
 interface InteractiveCategoryPathProps {
   categories: Category[];
@@ -14,27 +15,42 @@ const selectedCategoryName = ref<string | null>(null);
 </script>
 
 <template>
-  <div class="interactive-category-path">
-    <CategoryTree
-      :categories="props.categories"
-      @select-category="selectedCategoryName = $event" />
-    <CategoryInput @search="selectedCategoryName = $event" />
-    <CategoryPath
-      v-if="selectedCategoryName !== null"
-      :categories="props.categories"
-      :categoryName="selectedCategoryName"
-      @clear="selectedCategoryName = null" />
-  </div>
+  <section class="interactive-category-path">
+    <SectionTitle>Interactive Solution</SectionTitle>
+
+    <div class="contents">
+      <CategoryTree :categories="props.categories" />
+
+      <div>
+        <CategoryInput @search="selectedCategoryName = $event" />
+
+        <CategoryPath
+          v-if="selectedCategoryName !== null"
+          :categories="props.categories"
+          :categoryName="selectedCategoryName"
+          @clear="selectedCategoryName = null" />
+      </div>
+    </div>
+  </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .interactive-category-path {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+  .contents {
+    display: flex;
+    flex-direction: column-reverse;
 
-  align-items: center;
+    gap: 2em;
+  }
 
-  margin: auto;
+  @media screen and (min-width: 600px) {
+    .contents {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+
+      gap: 4em;
+    }
+  }
 }
 </style>

@@ -2,7 +2,6 @@
 import { computed } from 'vue';
 import { getCategoryPath } from '../helpers/getCategoryPath';
 import type { Category } from '../types/category';
-import SectionTitle from './ui/SectionTitle.vue';
 
 interface CategoryPathProps {
   categories: Category[];
@@ -22,8 +21,6 @@ const categoryPath = computed<string | null>(() =>
 
 <template>
   <div class="category-path">
-    <SectionTitle>Category path</SectionTitle>
-
     <span class="error" v-if="categoryPath === null">
       Category name not found.
     </span>

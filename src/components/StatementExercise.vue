@@ -18,7 +18,7 @@ import StatementSolution from './StatementSolution.vue';
 
   @media screen and (min-width: 600px) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: auto;
     gap: 4em;
   }

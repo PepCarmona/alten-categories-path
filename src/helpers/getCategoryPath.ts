@@ -1,5 +1,14 @@
 import type { Category } from '../types/category';
 
+/**
+ * Finds the full path to a given category in a hierarchical category
+ * structure.
+ *
+ * @param categories - The hierarchical category structure.
+ * @param categoryName - The name of the category to find.
+ * @param path - The current path being explored (optional, defaults to empty string).
+ * @returns The full path to the category, or null if it does not exist.
+ */
 export function getCategoryPath(
   categories: Category[],
   categoryName: string,

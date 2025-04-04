@@ -35,6 +35,8 @@ const categoryPath = computed<string | null>(() =>
 <style scoped lang="scss">
 .category-path {
   display: flex;
+  justify-content: space-between;
+
   gap: 0.5em;
 
   .error {

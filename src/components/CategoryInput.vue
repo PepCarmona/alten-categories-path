@@ -14,7 +14,7 @@ const inputText = ref<string>('');
 <template>
   <div class="category-input">
     <AppInput
-      type="text"
+      class="input"
       placeholder="Category name"
       v-model="inputText"
       @enter="emit('search', inputText)" />
@@ -25,9 +25,13 @@ const inputText = ref<string>('');
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .category-input {
   display: flex;
   gap: 0.5em;
+
+  .input {
+    width: 100%;
+  }
 }
 </style>

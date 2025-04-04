@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface AppButtonProps {
-  type: 'primary' | 'secondary';
+  type: 'primary' | 'secondary' | 'free';
 }
 const props = defineProps<AppButtonProps>();
 </script>
@@ -28,6 +28,12 @@ const props = defineProps<AppButtonProps>();
     border: 1px solid var(--shadow-color);
 
     font-size: small;
+  }
+
+  &.free {
+    color: var(--text-color);
+    padding: 0.5em;
+    border: none;
   }
 }
 </style>

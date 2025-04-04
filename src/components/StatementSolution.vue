@@ -7,6 +7,7 @@ import SectionTitle from './ui/SectionTitle.vue';
   <div class="statement-solution">
     <SectionTitle>The Solution</SectionTitle>
     <CodeSnippet
+      allow-copy
       mode="block"
       code="function getCategoryPath(
   categories: Category[],

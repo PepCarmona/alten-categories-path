@@ -10,16 +10,18 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitest/browser": "^3.1.1",
-    "vitest": "^3.1.1",
-    "vitest-browser-vue": "^0.2.0",
     "@vue/tsconfig": "^0.7.0",
+    "sass-embedded": "^1.86.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
+    "vitest": "^3.1.1",
+    "vitest-browser-vue": "^0.2.0",
     "vue-tsc": "^2.2.4"
   }
 }

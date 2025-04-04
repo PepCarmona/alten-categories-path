@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Category } from '../types/category';
 import CategoryDetails from './CategoryDetails.vue';
-import CategoryTitle from './CategoryTitle.vue';
+import SectionTitle from './ui/SectionTitle.vue';
 
 interface CategoryTreeProps {
   categories: Category[];
@@ -16,7 +16,7 @@ const emit = defineEmits<CategoryTreeEmits>();
 
 <template>
   <div class="category-tree">
-    <CategoryTitle>Categories</CategoryTitle>
+    <SectionTitle>Categories</SectionTitle>
 
     <ul>
       <li v-for="category in props.categories" :key="category.name">

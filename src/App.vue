@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import InteractiveCategoryPath from './components/InteractiveCategoryPath.vue';
-import { CATEGORIES } from './data/categories';
+import CategoryView from './views/CategoryView.vue';
 </script>
 
 <template>
-  <InteractiveCategoryPath :categories="CATEGORIES" />
+  <CategoryView />
 </template>
-
-<style scoped></style>

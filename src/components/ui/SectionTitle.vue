@@ -1,9 +1,9 @@
 <template>
-  <h2 class="title"><slot /></h2>
+  <h2 class="section-title"><slot /></h2>
 </template>
 
 <style scoped>
-.title {
+.section-title {
   text-align: center;
 
   font-weight: 600;

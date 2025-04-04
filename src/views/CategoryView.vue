@@ -24,10 +24,9 @@ import StatementExercise from '../components/StatementExercise.vue';
   max-width: 1024px;
 
   .separator {
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--shadow-color);
     width: 60%;
     margin: auto;
-    opacity: 0.4;
   }
 }
 </style>

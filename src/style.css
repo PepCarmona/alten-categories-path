@@ -1,6 +1,8 @@
 :root {
   --text-color: #adb0b4;
+  --text-color-light: #e7ebef;
   --shadow-color: #5b5c5e;
+  --primary-color: #194f56;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import AppInput from './ui/AppInput.vue';
+import AppButton from './ui/AppButton.vue';
 
 interface CategoryInputEmits {
   (eventName: 'search', inputText: string): void;
@@ -12,10 +13,21 @@ const inputText = ref<string>('');
 
 <template>
   <div class="category-input">
-    <AppInput type="text" placeholder="Category name" v-model="inputText" />
+    <AppInput
+      type="text"
+      placeholder="Category name"
+      v-model="inputText"
+      @enter="emit('search', inputText)" />
 
-    <button @click="emit('search', inputText)">Search</button>
+    <AppButton :type="'primary'" @click="emit('search', inputText)">
+      Search
+    </AppButton>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.category-input {
+  display: flex;
+  gap: 0.5em;
+}
+</style>

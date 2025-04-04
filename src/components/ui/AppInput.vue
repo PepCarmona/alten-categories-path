@@ -4,6 +4,11 @@ interface AppInputProps {
 }
 const props = defineProps<AppInputProps>();
 
+interface AppInputEmits {
+  (eventName: 'enter'): void;
+}
+const emit = defineEmits<AppInputEmits>();
+
 const model = defineModel<string>();
 </script>
 
@@ -12,7 +17,8 @@ const model = defineModel<string>();
     class="app-input"
     type="text"
     :placeholder="props.placeholder"
-    v-model="model" />
+    v-model="model"
+    @keypress.enter="emit('enter')" />
 </template>
 
 <style scoped lang="scss">

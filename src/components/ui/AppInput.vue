@@ -27,7 +27,7 @@ const model = defineModel<string>();
   border-radius: 0.35em;
   outline: none;
   border: 1px solid var(--shadow-color);
-  background-color: #0d1117;
+  background-color: var(--background-color-dark);
   color: var(--text-color);
 
   &::placeholder {
